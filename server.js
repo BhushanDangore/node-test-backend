@@ -1,5 +1,4 @@
 const express = require("express");
-const cors = require("cors");
 const { MongoClient } = require("mongodb");
 const formData = require("form-data");
 const Mailgun = require("mailgun.js");
@@ -21,7 +20,6 @@ const MailGunClient = mailgun.client({
 });
 
 const app = express();
-app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
