@@ -117,9 +117,8 @@ app.post("/add-response", async (req, res) => {
     });
 });
 
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Server Started`);
-});
-
+const port = process.env.PORT || 3001;
+const server = app.listen(port, () => console.log(`Your app listening on port ${port}!`));
+server.keepAliveTimeout = 120 * 1000;
+server.headersTimeout = 120 * 1000;
 // module.exports.handler = ServerlessHttp(app);
